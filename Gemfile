@@ -6,8 +6,10 @@ gem 'rails', '3.0.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'configatron, '2.6.3'
-
+gem 'configatron', '2.6.3'
+gem 'multi_json'
+gem 'foursquare2', '0.9.0'
+gem 'mini_fb', '1.1.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'

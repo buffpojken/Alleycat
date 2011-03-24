@@ -1,0 +1,37 @@
+<div class="onecolumn" style="width:340px;margin:auto">
+	
+	<div class="header">
+	
+		<h2>Login</h2>
+		
+	</div>
+	
+	<div class="content">
+	
+			<input type="button" value="Connect" class="button_dark" id="connect-btn"/>
+				or
+			<a href="mailto:daniel@sykewarrior.com">Request Account</a>
+		
+	</div>
+	
+</div>
+
+<% content_for :page_script do %>
+	
+		$(document).ready(function(){
+			
+			$("#connect-btn").click(function(){
+				FB.login(function(resp){
+					if(resp.session){
+						document.location.href = '/public/connect';
+					}else{
+						alert("If you don't grant access, you won't get access!");
+					}
+				}, {
+					perms:'publish_stream,email,offline_access'
+				});
+			});
+			
+		});
+	
+<% end %>

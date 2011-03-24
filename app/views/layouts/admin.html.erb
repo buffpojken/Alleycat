@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<meta name="author" content="Daniel Sundström">
+
+<!-- Website Title --> 
+<title>Alleycat</title>
+
+<!-- Meta data for SEO -->
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+
+<!-- Template stylesheet -->
+<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
+<link href="/stylesheets/datepicker.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/javascripts/jwysiwyg/jquery.wysiwyg.css" type="text/css" media="all"/>
+<link href="/javascripts/visualize/visualize.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" type="text/css" href="/javascripts/fancybox/jquery.fancybox-1.3.0.css" media="screen"/>
+
+<!--[if IE 7]>
+	<link href="/stylesheets/ie7.css" rel="stylesheet" type="text/css" media="all">
+<![endif]-->
+
+<!--[if IE]>
+	<script type="text/javascript" src="/javascripts/excanvas.js"></script>
+<![endif]-->
+
+<!-- Jquery and plugins -->
+<script type="text/javascript" src="/javascripts/jquery.js"></script>
+<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.img.preload.js"></script>
+<script type="text/javascript" src="/javascripts/fancybox/jquery.fancybox-1.3.0.js"></script>
+<script type="text/javascript" src="/javascripts/jwysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="/javascripts/hint.js"></script>
+<script type="text/javascript" src="/javascripts/visualize/jquery.visualize.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.tipsy.js"></script>
+<script type="text/javascript" src="/javascripts/browser.js"></script>
+<script type="text/javascript" src="/javascripts/custom.js"></script>
+
+</head>
+<body>
+	
+	<!-- Begin control panel wrapper -->
+	<div id="wrapper">
+	
+		<!-- Begin top bar -->
+		<div id="top_bar">
+			
+			
+			<!-- Begin logo -->
+			<div class="logo">
+				<img src="/images/logos/64x64.png" alt="Logotype"/>
+			</div>
+			<!-- End logo -->
+			
+			<!-- Begin account menu -->
+			<div class="account">
+				<div class="detail">
+					Hello <a href=""><strong>Admin</strong></a>
+				</div>
+				<ul class="icon">
+					<li>
+						<a href="" title="Message">
+							<img src="/images/icon_message.png" alt="" class="middle"/>
+						</a>
+					</li>
+					<li>
+						<a href="" title="Setting">
+							<img src="/images/icon_setting.png" alt="" class="middle"/>
+						</a>
+					</li>
+					<li>
+						<a href="/logout" title="Logout">
+							<img src="/images/icon_logout.png" alt="" class="middle"/>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- End account menu -->
+			
+			
+		</div>
+		<!--End top bar -->
+		
+		<!-- Begin main menu -->
+		<div id="menu_wrapper">
+		
+			<ul class="nav">
+				<li>
+					<a href="" class="active">
+						Home
+					</a>
+				</li>
+				<li>
+					<a href="">
+						Content
+					</a>
+					<div class="popup">
+						<div class="top"></div>
+						<div class="content">
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Add Content
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Manage Content
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Delete Content
+									</a>
+								</li>
+							</ul>
+							<br class="clear"/>
+						</div>
+						<div class="footer"></div>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						Users
+					</a>
+					<div class="popup">
+						<div class="top"></div>
+						<div class="content">
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Add Users
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Manage Users
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Delete Users
+									</a>
+								</li>
+							</ul>
+							<br class="clear"/>
+						</div>
+						<div class="footer"></div>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						Media
+					</a>
+					<div class="popup">
+						<div class="top"></div>
+						<div class="content">
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Add Media
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Manage Media
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Delete Media
+									</a>
+								</li>
+							</ul>
+							<br class="clear"/>
+						</div>
+						<div class="footer"></div>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						Shortcut
+					</a>
+					<div class="popup">
+						<div class="top"></div>
+						<div class="content">
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Add Shortcut
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Manage Shortcut
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Delete Shortcut
+									</a>
+								</li>
+							</ul>
+							<br class="clear"/>
+						</div>
+						<div class="footer"></div>
+					</div>
+				</li>
+			</ul>
+			
+			<div id="search">
+				<form action="index.html" id="search_form" name="search_form" method="get">
+					<p><input type="text" id="q" name="q" title="Search" class="search noshadow"/></p>
+				</form>
+			</div>
+			
+		</div>
+		<!-- End main menu -->
+		
+		
+		<!-- Begin shortcut menu -->
+		<div class="shortcut">
+			<div class="top"></div>
+			<div class="content">
+				<h2>Shortcut</h2>
+			    <ul id="shortcut_item" class="items">
+			    	<li>
+			    		<a href="" title="Calendar">
+			    			<img src="/example/icon_calendar.png" alt=""/>
+			    		</a>
+			    	</li>
+			    	<li>
+			    		<a href="" title="Contact">
+			    			<img src="/example/icon_contact.png" alt=""/>
+			    		</a>
+			    	</li>
+			    	<li>
+			    		<a href="" title="Chart">
+			    			<img src="/example/icon_chart.png" alt=""/>
+			    		</a>
+			    	</li>
+			    	<li>
+			    		<a href="" title="Note">
+			    			<img src="/example/icon_note.png" alt=""/>
+			    		</a>
+			    	</li>
+			    	<li>
+			    		<a href="" title="Network">
+			    			<img src="/example/icon_network.png" alt=""/>
+			    		</a>
+			    	</li>
+			    </ul>
+			    <br class="clear"/>
+			</div>
+			<div class="footer"></div>
+		</div>
+		<!-- End shortcut menu -->
+		
+		<br class="clear"/>
+		
+		<!-- Begin content -->
+		<div id="content_wrapper">
+			<%= yield %>
+		</div>
+		<!-- End content -->
+		
+		<br class="clear"/>
+			
+		<div id="footer">
+			&copy; Copyright 2011 by Daniel Sundström
+		</div>
+	
+	</div>
+	<!-- End control panel wrapper -->
+	
+</body>
+</html>

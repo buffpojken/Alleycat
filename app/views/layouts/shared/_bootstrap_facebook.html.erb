@@ -1,0 +1,10 @@
+window.fbAsyncInit = function() {
+  FB.init({appId: '<%= configatron.fb_id.to_s %>', status: true, cookie: true, xfbml: true});
+	<%= yield :facebook_initialization_code %>
+};
+(function() {
+  var e = document.createElement('script'); e.async = true;
+  e.src = document.location.protocol +
+    '//connect.facebook.net/en_US/all.js';
+  document.getElementById('fb-root').appendChild(e);
+}());

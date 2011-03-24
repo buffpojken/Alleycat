@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
  
 <!-- Website Title --> 
-<title>Full Admin</title>
+<title>AlleyCat</title>
 
 <!-- Meta data for SEO -->
 <meta name="description" content=""/>
@@ -46,52 +46,25 @@
 	<div id="wrapper">
 	
 		<div id="login_top">
-			<img src="images/logo.png" alt=""/>
+			<img src="/images/logos/128x128.png" alt=""/>
 		</div>
 		
 		<br class="clear"/><br/>
 	
 		<!-- Begin one column box -->
-			<div class="onecolumn" style="width:340px;margin:auto">
-				
-				<div class="header">
-				
-					<h2>Login</h2>
-					
-				</div>
-				
-				<div class="content">
-				
-					<div id="login_info" class="alert_info" style="margin:auto;padding:auto;">
-						<p>
-							<img src="images/icon_info.png" alt="success" class="middle"/>
-							Just click Login for demo.
-						</p>
-					</div>
-					
-					<br class="clear"/>
-				
-					<form action="home.html" method="get" id="form_login" name="form_login">
-						<p>
-							<input type="text" id="username" name="username" style="width:285px" title="Username"/>
-						</p>
-						<br/>
-						<p>
-							<input type="password" id="password" name="password" style="width:285px" title="******"/>
-						</p>
-						<br/>
-						<input type="checkbox" id="remember" name="remember"/><span style="font-size:11px;margin-left:5px">Remember my password</span>
-						<p style="margin-top:30px">
-							<input type="submit" class="button_dark" value="Signin"/>	
-						</p>
-					</form>
-				
-				</div>
-				
-			</div>
+		<%= yield %>
 	
 	</div>
 	<!-- End control panel wrapper -->
+	<div id="fb-root"></div>
+	
+	<script type="text/javascript">
+		<%= render :partial => 'layouts/shared/bootstrap_facebook' %>
+	</script>
+	
+	<script type="text/javascript">	
+		<%= yield :page_script %>
+	</script>
 	
 </body>
 </html>

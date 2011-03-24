@@ -13,6 +13,8 @@ Alleycat::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -39,6 +41,14 @@ Alleycat::Application.routes.draw do
   #     end
   #   end
 
+  match '/admin'          => 'public#admin'
+  match '/public/connect' => 'public#connect'
+  match '/logout'         => 'public#logout'
+
+  namespace :admin do
+    resource :dashboard
+  end
+
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
@@ -48,7 +58,7 @@ Alleycat::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "public#index"
 
   # See how all your routes lay out with "rake routes"
 
