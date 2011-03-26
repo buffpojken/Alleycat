@@ -3,22 +3,6 @@ $(function(){
 	// Preload images
 	$.preloadCssImages();
 	
-	// Setup WYSIWYG editor
-    $('.wysiwyg').wysiwyg({
-    	css : "/stylesheets/wysiwyg.css",
-		  rmUnusedControls: false,
-		    controls: {
-		        bold: { visible : true },
-						save: {
-							visible:true,
-							exec: function(){
-								alert("save");
-							},
-							className:'save_btn'
-						}
-		    }    
-		});
-	
 	$('.nav li a').each(function()
 		{
 			$(this).click(function(){
@@ -46,28 +30,7 @@ $(function(){
 			});
 		}
 	);
-	
-	$('#shortcut_item li a').tipsy({gravity: 'w'});
-	
-	$(document).click(function(){
-		$('.popup').css('display', 'none');
-		$('.popup').parent().find('a').removeClass('selected');
-	});
-	
-	$('table.global tbody tr').mouseenter(function(){
-		$(this).css('background', '#f9f9f9');
-	});
-	
-	$('table.global tbody tr').mouseleave(function(){
-		$(this).css('background', '#ffffff');
-	});
-	
-	$(window).resize(function() {
- 		 $('.wysiwyg').css('width', '100%');
-	});
-	
-	// Setup style of select
-
+		
 	
 	$('div.option').each(function(i,e){
 		$(e).find('div.text').html($(e).find('option:selected').text().substring(0,18));
