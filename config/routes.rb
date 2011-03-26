@@ -59,6 +59,9 @@ Alleycat::Application.routes.draw do
     collection do 
       get :list
     end
+    member do
+      get :play
+    end
   end
 
   # Sample resource route within a namespace:

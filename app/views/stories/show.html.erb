@@ -1,0 +1,12 @@
+<div data-role="page" data-theme="a" id="story-list">
+	<div data-role="content">
+		<img src="<%= @story.icon.url %>" style="width:200px;"/>
+		<h1><%= @story.name %></h1>
+		<p><%= @story.description %></h1>
+		<p>Starts in a <%= @story.acts.first.position.location.name.singularize %></p>
+	</div>	
+	<fieldset class="ui-grid-a">
+		<div class="ui-block-a"><a href="<%= play_story_path(@story)%>" data-role="button" data-theme="a">Play</a></div>
+		<div class="ui-block-b"><a href="/stories/list" data-role="button" data-rel="back" data-theme="b">back</a></div>	   
+	</fieldset>	
+</div>

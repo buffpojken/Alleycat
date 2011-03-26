@@ -3,7 +3,7 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :acts
 
-  has_attached_file :icon, :styles => {:list_thumb => "60x60>"}
+  has_attached_file :icon, :styles => {:list_thumb => "60x60>", :square => "x100"}
   
   validates :name, :presence => true
 

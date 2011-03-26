@@ -1,10 +1,16 @@
 <div data-role="page" data-theme="a" id="story-list">
-	
-	
 	<div data-role="content">
-		
-		
-
-
-	</div>
+		<ul data-role="listview">
+			<% @stories.each do |story| %>
+			<li>
+				<a href="/stories/<%= story.id %>">
+					<img src="<%= story.icon.url(:square) %>" style="height:100px"/>
+					<%= story.name %><br />
+					<br />
+					<p>Starts in a <%= story.acts.first.position.location.name.singularize %></p>
+				</a>
+			</li>
+			<% end %>
+		</ul>
+	</div>	
 </div>

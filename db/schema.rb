@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326141544) do
+ActiveRecord::Schema.define(:version => 20110326170928) do
 
   create_table "acts", :force => true do |t|
     t.integer  "story_id"
@@ -56,9 +56,11 @@ ActiveRecord::Schema.define(:version => 20110326141544) do
     t.integer  "fb_uid"
     t.string   "fb_access_token"
     t.string   "email"
-    t.integer  "admin",           :default => 0
+    t.integer  "admin",            :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "current_story_id"
+    t.integer  "current_act"
   end
 
 end
