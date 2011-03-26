@@ -157,6 +157,13 @@ h5
 	font-weight: normal;
 }
 
+h1 span,h2 span,h3 span,h4 span,h5 span{
+	font-size:12px;
+	position:relative;
+	bottom:2px;
+	left:0px;
+}
+
 ul.global
 {
 	margin-left: 20px;
@@ -324,12 +331,17 @@ input.button_light:active
 	background: transparent url('../images/bg_button_light_active.png') no-repeat center;
 }
 
+.centralized{
+	display:block;
+	margin:0px auto;
+	width:200px;
+}
+
 .option
 {
-	background: transparent url('../images/bg_option.png') no-repeat center;
+	background: transparent url('../images/bg_option.png') no-repeat;
 	width:169px;
 	height: 30px;
-
 	cursor: pointer;
 }
 
@@ -343,11 +355,11 @@ input.button_light:active
 {
 	background: transparent;
 	border: 0;
-	width: 169px;
 	position: relative;
 	top: -22px;
 	opacity: 0;
 	filter:alpha(opacity=0);
+	width:169px;
 }
 
 .file
@@ -966,3 +978,4 @@ input.button_light:active
 	color: #fff;
 	font-size: 11px;
 }
+div.wysiwyg ul.toolbar li.save_btn{background-image:url(http://www.section9studios.com/jason/xnagamer_uploads/save_icon.gif);background-position:0px 1px;}

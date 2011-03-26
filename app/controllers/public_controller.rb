@@ -1,6 +1,8 @@
 class PublicController < ApplicationController
   layout 'sessions'
 
+
+
   def admin
     
   end
@@ -12,7 +14,7 @@ class PublicController < ApplicationController
       if @current_user.admin? 
         redirect_to '/admin/dashboard' and return 
       else
-        redirect_to '/' and return
+        redirect_to '/stories/list' and return
       end
     else
       flash[:error] = "Someone has tampered with this cookie."

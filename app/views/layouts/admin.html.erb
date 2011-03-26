@@ -14,9 +14,10 @@
 
 <!-- Template stylesheet -->
 <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" media="all"/>
 <link href="/stylesheets/datepicker.css" rel="stylesheet" type="text/css" media="all"/>
 <link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="/javascripts/jwysiwyg/jquery.wysiwyg.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/javascripts/jwysiwyg/jquery.wysiwyg.old-school.css" type="text/css" media="all"/>
 <link href="/javascripts/visualize/visualize.css" rel="stylesheet" type="text/css" media="all"/>
 <link rel="stylesheet" type="text/css" href="/javascripts/fancybox/jquery.fancybox-1.3.0.css" media="screen"/>
 
@@ -29,16 +30,6 @@
 <![endif]-->
 
 <!-- Jquery and plugins -->
-<script type="text/javascript" src="/javascripts/jquery.js"></script>
-<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.img.preload.js"></script>
-<script type="text/javascript" src="/javascripts/fancybox/jquery.fancybox-1.3.0.js"></script>
-<script type="text/javascript" src="/javascripts/jwysiwyg/jquery.wysiwyg.js"></script>
-<script type="text/javascript" src="/javascripts/hint.js"></script>
-<script type="text/javascript" src="/javascripts/visualize/jquery.visualize.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.tipsy.js"></script>
-<script type="text/javascript" src="/javascripts/browser.js"></script>
-<script type="text/javascript" src="/javascripts/custom.js"></script>
 
 </head>
 <body>
@@ -90,31 +81,31 @@
 		
 			<ul class="nav">
 				<li>
-					<a href="" class="active">
+					<a href="/admin/dashboard" class="active">
 						Home
 					</a>
 				</li>
 				<li>
 					<a href="">
-						Content
+						Stories
 					</a>
 					<div class="popup">
 						<div class="top"></div>
 						<div class="content">
 							<ul class="submenu">
 								<li>
-									<a href="">
-										Add Content
+									<a href="/admin/stories">
+										All stories
 									</a>
 								</li>
 								<li>
-									<a href="">
-										Manage Content
+									<a href="/admin/stories/mine">
+										My stories
 									</a>
 								</li>
 								<li>
-									<a href="">
-										Delete Content
+									<a href="/admin/stories/new">
+										New story
 									</a>
 								</li>
 							</ul>
@@ -152,71 +143,13 @@
 						<div class="footer"></div>
 					</div>
 				</li>
-				<li>
-					<a href="">
-						Media
-					</a>
-					<div class="popup">
-						<div class="top"></div>
-						<div class="content">
-							<ul class="submenu">
-								<li>
-									<a href="">
-										Add Media
-									</a>
-								</li>
-								<li>
-									<a href="">
-										Manage Media
-									</a>
-								</li>
-								<li>
-									<a href="">
-										Delete Media
-									</a>
-								</li>
-							</ul>
-							<br class="clear"/>
-						</div>
-						<div class="footer"></div>
-					</div>
-				</li>
-				<li>
-					<a href="">
-						Shortcut
-					</a>
-					<div class="popup">
-						<div class="top"></div>
-						<div class="content">
-							<ul class="submenu">
-								<li>
-									<a href="">
-										Add Shortcut
-									</a>
-								</li>
-								<li>
-									<a href="">
-										Manage Shortcut
-									</a>
-								</li>
-								<li>
-									<a href="">
-										Delete Shortcut
-									</a>
-								</li>
-							</ul>
-							<br class="clear"/>
-						</div>
-						<div class="footer"></div>
-					</div>
-				</li>
 			</ul>
 			
-			<div id="search">
+			<!-- <div id="search">
 				<form action="index.html" id="search_form" name="search_form" method="get">
 					<p><input type="text" id="q" name="q" title="Search" class="search noshadow"/></p>
 				</form>
-			</div>
+			</div> -->
 			
 		</div>
 		<!-- End main menu -->
@@ -276,6 +209,22 @@
 	
 	</div>
 	<!-- End control panel wrapper -->
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.img.preload.js"></script>
+	<script type="text/javascript" src="/javascripts/fancybox/jquery.fancybox-1.3.0.js"></script>
+	<script type="text/javascript" src="/javascripts/jwysiwyg/jquery.wysiwyg.js"></script>
+	<script type="text/javascript" src="/javascripts/hint.js"></script>
+	<script type="text/javascript" src="/javascripts/visualize/jquery.visualize.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/javascripts/browser.js"></script>
+	<script type="text/javascript" src="/javascripts/custom.js"></script>
+ <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA6CJnGpI-7SvVVlNcYelPwhRbqgL_ELVVW56uQtf2062fYZ3cDhQuAJNKrvn7_LdFiskjmX7BHOWgJA" type="text/javascript"></script>
+	<%= yield :script_files %>
+
+	<script type="text/javascript">
+		<%= yield :page_script %>
+	</script>
 	
 </body>
 </html>

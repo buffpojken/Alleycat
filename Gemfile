@@ -10,6 +10,7 @@ gem 'configatron', '2.6.3'
 gem 'multi_json'
 gem 'foursquare2', '0.9.0'
 gem 'mini_fb', '1.1.6'
+gem 'paperclip', '2.3.8', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -47,6 +47,18 @@ Alleycat::Application.routes.draw do
 
   namespace :admin do
     resource :dashboard
+    resources :stories do 
+      collection do 
+        get :mine
+      end
+      resources :acts
+    end
+  end
+  
+  resources :stories do
+    collection do 
+      get :list
+    end
   end
 
   # Sample resource route within a namespace:
@@ -58,7 +70,7 @@ Alleycat::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "public#index"
+  root :to => "stories#index"
 
   # See how all your routes lay out with "rake routes"
 

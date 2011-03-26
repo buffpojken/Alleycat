@@ -1,12 +1,23 @@
 $(function(){ 
-	
+	_l();
 	// Preload images
 	$.preloadCssImages();
 	
 	// Setup WYSIWYG editor
-    $('#wysiwyg').wysiwyg({
-    	css : "stylesheets/wysiwyg.css"
-    });
+    $('.wysiwyg').wysiwyg({
+    	css : "/stylesheets/wysiwyg.css",
+		  rmUnusedControls: false,
+		    controls: {
+		        bold: { visible : true },
+						save: {
+							visible:true,
+							exec: function(){
+								alert("save");
+							},
+							className:'save_btn'
+						}
+		    }    
+		});
 	
 	$('.nav li a').each(function()
 		{
@@ -56,10 +67,15 @@ $(function(){
 	});
 	
 	// Setup style of select
-	$('div.option').find('div.text').html($('div.option').find('select:first').val());
-	$('div.option').find('select:first').change(function(){
-		$(this).parent().find('div.text').html($(this).val());
+
+	
+	$('div.option').each(function(i,e){
+		$(e).find('div.text').html($(e).find('option:selected').text().substring(0,18));
+		$(e).find('select').change(function(){
+			$(this).parent().find('div.text').html($(this).find('option:selected').text().substring(0, 18)+"...");			
+		})
 	});
+
 	
 	// Setup style of input file
 	$('div.file').find('input:first').change(function(){
@@ -151,3 +167,14 @@ $(document).ready(function() {
 	$('.wysiwyg').css('width', '100%');
     
 });
+
+function _l(){
+	$(".unobtrusive").live('click',function(e){
+		e.preventDefault();
+		t = e.currentTarget;
+		if(t.disabled){return;}
+		f = window[t.getAttribute('func')];
+		f.element = t;
+		f(e);
+	});
+}

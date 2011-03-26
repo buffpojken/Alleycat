@@ -1,0 +1,23 @@
+<div class="option">
+	<div class="text"></div>
+	<select id="location_select-<%= act.id %>">
+		<% @locations.each do |location| %>
+			<optgroup label="<%= location.name %>">
+					<%= options_from_collection_for_select(location.locations, 'id', 'name', act.position.location_id)%>
+			</optgroup>
+		<% end %>
+	</select>
+</div>
+
+<% content_for :page_script do %>
+	
+	$("#location_select-<%= act.id%>").bind('change', function(){
+		var _t = $(this);
+		$.ajax({
+			url:'<%= admin_story_act_path(@story, act)%>', 
+			type:'PUT', 
+			data: {'position':{location_id: _t.val()}}
+		})
+	});
+	
+<% end %>

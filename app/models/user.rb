@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :fb_uid, :fb_access_token, :email
 
   before_create :check_if_admin
-
+  
+  has_many :stories
 
   def self.connect(info)
     u = self.find_by_fb_uid(info['uid'])

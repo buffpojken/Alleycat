@@ -10,7 +10,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324225844) do
+ActiveRecord::Schema.define(:version => 20110326141544) do
+
+  create_table "acts", :force => true do |t|
+    t.integer  "story_id"
+    t.string   "name"
+    t.string   "act_key"
+    t.string   "positioning"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position_id"
+    t.string   "position_type"
+    t.text     "content"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "icon_url"
+    t.string   "parent_location_id"
+    t.string   "foursquare_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "published",         :default => 0
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "typed_positionings", :force => true do |t|
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

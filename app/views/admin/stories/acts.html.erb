@@ -1,0 +1,70 @@
+<!-- Begin one column box -->
+<div class="onecolumn">
+	
+	<div class="header">
+	
+		
+		<h2>Acts in <%= @story.name %></h2>
+
+	</div>
+	
+	<div class="content">
+		<p style="width:50%; max-width:500px">
+			<img src="<%= @story.icon.url(:list_thumb)%>" style="float:left; margin:0px 15px 15px 0px"/>
+			A story is constructed from a set of acts. Each act contains text or images or media 
+			which furthers the drama. Acts can link to other acts, which represent choices or progression.
+		</p>			
+		
+		<div class="act-container" style="border-top:1px solid #ccc; margin:30px 0px 20px 0px;">
+			<% @story.acts.each do |act| %>
+				<div class="act" style="margin:10px 0px 20px 0px" data-act-id="<%= act.id %>">
+						<h4><%= act.name %> <span>(<a href="<%= delete_act_admin_story_path(@story, :act_id => act.id)%>">delete</a>)</span></h4>
+						<%= render :partial => '/admin/stories/positioning/'+act.positioning, :locals => {:act => act} %>
+				</div>	
+			<% end %>
+		</div>	
+		
+		<div style="width:100px;margin:0px auto;">
+			<!-- <input type="button" id="add_act" href="#ninja" class="button_light add_act" value="Add Act" /> -->
+			<a href="#add-act-form" class="fancy">Add Act</a>
+		</div>
+	</div>
+</div>
+<br class="clear"/>
+
+<% content_for :page_script do %>
+	$(function(){
+		$(".fancy").fancybox({
+			overlayOpacity:0.7
+		});
+	});
+
+	
+<% end %>
+
+<div style="display:none">
+<div id="add-act-form" class="content">
+	<%= form_tag(acts_admin_story_path(@story), {:id => 'new-act-form'}) do %>
+		<h3>New Act</h3>
+		<p>
+			<label>Name:</label>
+			<input name="act[name]" type="text" style="width:97%"/>
+		</p>	
+		<br class="clear" />
+		<p>
+			<label>Act Key [?]:</label>
+			<input name="act[act_key]" type="text" style="width:97%" />
+		</p>
+		<br class="clear"/>
+		<p>
+			<input type="radio" name="act[positioning]" value="typed" checked="checked" class="radio"/><label>Typed position</label><br />
+			<input type="radio" name="act[positioning]" value="fixed" checked="checked" class="radio"/><label>Fixed position</label><br />
+			<input type="radio" name="act[positioning]" value="none" checked="checked" class="radio"/><label>No position required</label> 			
+		</p>
+		<br class="clear"/>
+		<p class="centralized">
+			<input type="submit" class="button_light" value="Create" /> or <a style="cursor:pointer" onclick="$.fancybox.close()">cancel</a>
+		</p>	
+	<% end %>
+</div>
+</div>

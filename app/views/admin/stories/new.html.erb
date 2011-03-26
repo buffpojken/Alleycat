@@ -1,0 +1,76 @@
+<!-- Begin two column box -->
+<div class="twocolumn_wrapper">
+
+
+	<br class="clear"/>
+
+	<div class="twocolumn">
+
+		<div class="header">
+
+			<div class="description">
+				Tell a new Story
+			</div>	
+
+		</div>
+
+		<div class="content">
+			<% form_tag({:action => :create}, {:multipart => true}) do %>
+			<!-- Begin form elements -->
+			<p>
+				<label>Name:</label><br/>
+				<input type="text" id="text_input1" style="width:97%" name="story[name]"/>
+			</p>
+			<br/>
+			<p>
+				<label>Description:</label><br/>
+				<textarea rows="5" cols="35" style="width:97%" name="story[description]"></textarea>
+			</p>
+			<br/>
+			<label>File input:</label><br/>
+			<div class="file">
+				<div class="text"></div>
+				<input type="file" name="story[icon]"/>
+			</div>
+			<br/><br/>
+			<p>
+				<input type="submit" class="button_light" value="Create"/>
+				or
+				<a href="/admin/stories">cancel</a>
+			</p>
+			<% end %>
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- Begin two column box -->
+<div class="twocolumn_wrapper right">
+
+
+
+	<br class="clear"/>
+
+	<div class="twocolumn">
+
+		<div class="header">
+			<div class="description">
+				Things to think about...
+			</div>				
+
+			<!-- End 2nd level tab -->
+
+		</div>
+
+		<div class="content">
+			<h2>Information</h2>
+			<p>
+				Not all GPSs are very exact.
+			</p>	
+			<br/><br/>
+		</div>
+	</div>
+
+</div>

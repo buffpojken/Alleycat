@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 1738ea1dcaf65860c53088cc62ad7f0887e629ca
+  specs:
+    paperclip (2.3.8)
+      activerecord
+      activesupport
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -96,4 +104,5 @@ DEPENDENCIES
   mini_fb (= 1.1.6)
   multi_json
   mysql2
+  paperclip (= 2.3.8)!
   rails (= 3.0.5)

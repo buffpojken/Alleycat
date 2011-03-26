@@ -1,0 +1,12 @@
+
+html {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+.landscape, .landscape .ui-page, .portrait, .portrait .ui-page {
+	min-height: 100%;
+}

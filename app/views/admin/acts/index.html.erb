@@ -1,0 +1,122 @@
+<!-- Begin one column box -->
+<div class="onecolumn">
+	
+	<div class="header">
+	
+		
+		<h2>Acts in <%= @story.name %></h2>
+
+	</div>
+	
+	<div class="content">
+		<p style="width:50%; max-width:500px">
+			<img src="<%= @story.icon.url(:list_thumb)%>" style="float:left; margin:0px 15px 15px 0px"/>
+			A story is constructed from a set of acts. Each act contains text or images or media 
+			which furthers the drama. Acts can link to other acts, which represent choices or progression.
+		</p>			
+		
+		<div class="act-container" style="border-top:1px solid #ccc; margin:30px 0px 20px 0px;">
+			<% @story.acts.each do |act| %>
+				<div class="act" id="act-<%= act.id %>" style="margin:10px 0px 20px 0px" data-act-id="<%= act.id %>">
+				<div style="float:right">
+					<%= button_to 'Delete', admin_story_act_path(@story,act), :method => :delete %>
+				</div>
+						<h4><%= act.name %></h4>
+						<div style="float:left; width:200px;">
+							<%= render :partial => '/admin/stories/positioning/'+act.positioning, :locals => {:act => act} %>
+						</div>
+						<div style="" class="text-content unobtrusive" func="show_content_form" data-act-id="<%= act.id %>"><% if act.content.blank? %>Click to add content<% else %><%= act.content %><% end %></div>
+						
+					<br class="clear" />
+				</div>	
+			<% end %>
+		</div>	
+		
+		<div style="width:100px;margin:0px auto;">
+			<!-- <input type="button" id="add_act" href="#ninja" class="button_light add_act" value="Add Act" /> -->
+			<a href="#add-act-form" class="fancy">Add Act</a>
+		</div>
+	</div>
+</div>
+<br class="clear"/>
+
+<div style="display:none">
+<div id="add-act-form" class="content popin-form">
+	<%= form_tag(admin_story_acts_path(@story), {:id => 'new-act-form'}) do %>
+		<h3>New Act</h3>
+		<p>
+			<label>Name:</label>
+			<input name="act[name]" type="text" style="width:97%"/>
+		</p>	
+		<br class="clear" />
+		<p>
+			<label>Act Key [?]:</label>
+			<input name="act[act_key]" type="text" style="width:97%" />
+		</p>
+		<br class="clear"/>
+		<p>
+			<input type="radio" name="act[positioning]" value="typed" checked="checked" class="radio"/><label>Typed position</label><br />
+			<input type="radio" name="act[positioning]" value="fixed" checked="checked" class="radio"/><label>Fixed position</label><br />
+			<input type="radio" name="act[positioning]" value="none" checked="checked" class="radio"/><label>No position required</label> 			
+		</p>
+		<br class="clear"/>
+		<p class="centralized">
+			<input type="submit" class="button_light" value="Create" /> or <a style="cursor:pointer" onclick="$.fancybox.close()">cancel</a>
+		</p>	
+	<% end %>
+</div>
+
+
+<div id="add-content-form" class="content popin-form">
+	<form>
+		<h3>Content</h3>
+		<p>
+			<textarea rows="5" cols="35" style="width:97%"></textarea>
+		</p>	
+		<br class="clear"/>
+		<p class="centralized">
+			<input type="button" class="button_light unobtrusive" func="add_text_content" value="Add" /> or <a style="cursor:pointer" onclick="$.fancybox.close()">cancel</a>			
+		</p>	
+	</form>		
+</div>
+
+</div>
+
+
+<% content_for :page_script do %>
+	$(function(){
+		$(".fancy").fancybox({
+			overlayOpacity:0.7
+		});
+		$(".text-content").mouseover(function(){
+			$(this).effect('highlight',{color:'#FFF5EE'});
+		});
+	});	
+	
+	function show_content_form(){
+		$("#add-content-form input").data('act-id',$(arguments.callee.element).data('act-id'));
+		$("#add-content-form textarea").val($("#act-"+$(arguments.callee.element).data('act-id')+" .text-content").text());
+		$("<a>").attr('href', '#add-content-form').fancybox().trigger('click');
+	}
+	
+	function add_text_content(){
+		var _i = $(arguments.callee.element);
+		$.ajax({
+			url:'/admin/stories/<%= @story.id %>/acts/'+_i.data('act-id'), 
+			type:'PUT', 
+			data:{
+				act:{
+					content:$("#add-content-form textarea").val()
+				}
+			}, 
+			success: function(){
+				$("#act-"+_i.data('act-id')+" .text-content").html($("#add-content-form textarea").val());
+				$.fancybox.close();
+			}, 
+			error: function(){
+				alert("Could not update content");
+			}
+		})
+	}	
+	
+<% end %>
