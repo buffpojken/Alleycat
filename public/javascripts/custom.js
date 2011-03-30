@@ -108,28 +108,7 @@ $(function(){
 	
 });
 
-$(document).ready(function() {
-	
-	// Find all the input elements with title attributes and add hint to it
-    $('input[title!=""]').hint();
-	
-	setTimeout(function(){ 
-		
-		// Setup graph
-    	$('#graph_data').visualize({
-			type: 'line',
-			width: '760px',
-			height: '240px',
-			colors: ['#26ADE4', '#D1E751']
-		}).appendTo('#graph_wrapper');
-		
-		$('.visualize').trigger('visualizeRefresh');
-		
-	}, 500);
-	
-	$('.wysiwyg').css('width', '100%');
-    
-});
+
 
 function _l(){
 	$(".unobtrusive").live('click',function(e){
