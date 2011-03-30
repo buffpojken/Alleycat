@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.integer   :user_id
       t.string    :name
       t.text      :description
-      t.integer   :published, :default => false
+      t.boolean   :published, :default => false
       t.string    :icon_file_name
       t.string    :icon_content_type
       t.integer   :icon_file_size
