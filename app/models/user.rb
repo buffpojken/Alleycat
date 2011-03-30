@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   def self.connect_by_code(code)
     access_token_hash = MiniFB.oauth_access_token(configatron.fb_id, "http://"+configatron.base_url+"/public/login", configatron.fb_sec, code)
+    logger.info access_token_hash
     fb = MiniFB::OAuthSession.new(access_token_hash['access_token'], 'en_US')
     me = fb.me
     u = self.find_by_fb_uid(me.id)
@@ -27,6 +28,8 @@ class User < ActiveRecord::Base
       u
     else
       u = self.create(:fb_uid => me.id, :fb_access_token => access_token_hash['access_token'], :name => me.name, :email => me.email)
+      logger.info u.inspect
+      logger.info u.errors.inspect
       if u && u.errors.empty? 
         u
       else
