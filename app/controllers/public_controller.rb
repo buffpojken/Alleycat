@@ -1,12 +1,21 @@
 class PublicController < ApplicationController
   layout 'sessions'
 
-
-
-  def admin
-    
-  end
   
+  
+  def login
+    if params[:code]
+      self.current_user = User.connect_by_code(params[:code])
+      redirect_to '/stories/list' and return
+    else
+      render :nothing => true, :status => 404 and return
+    end
+  end
+
+  # Admin
+
+  def admin;end
+
   def connect    
     if MiniFB.verify_cookie_signature(configatron.fb_id, configatron.fb_sec, cookies)
       fb_info = MiniFB.parse_cookie_information(configatron.fb_id, cookies)      

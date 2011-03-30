@@ -47,3 +47,13 @@ Alleycat::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
+
+
+configatron.fq_id     = "LH5XPJ0SUZKOWW1WC4Q1TSW20JV121W53AXVM2ZXCAQGRQQT"
+configatron.fq_sec    = "SJCBCL5TT15D34YGAJXTROGMEP0XOINEK3WGT32AVMLGZCKN"
+
+configatron.fb_id     = "120669758011662"
+configatron.fb_key    = "df4e03e56d76f6cf40c700520926d8b4"
+configatron.fb_sec    = "84b11ac0dd1d9d8b41381f3e6becb7a6"
+
+configatron.base_url  = "alleycat.heroku.com"

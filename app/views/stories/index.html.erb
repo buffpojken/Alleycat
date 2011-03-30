@@ -5,7 +5,8 @@
 		<p>In order to play, you'll need to have a reasonable modern cellphone with a GPS.</p>
 		<p>If anything seems broken, or you have any questions - send an email to <a href="mailto:daniel@sykewarrior.com">daniel@sykewarrior.com</a>
 		<fieldset class="ui-grid-a">
-			<div class="ui-block-a"><a href="/stories/list" data-role="button" data-theme="a">Login</a></div>
+			<div class="ui-block-a"><a href="http://www.facebook.com/dialog/oauth?
+			    client_id=<%= configatron.fb_id %>&redirect_uri=<%= CGI::escape("http://"+configatron.base_url+"/public/login")%>&display=touch&response_type=code" class="" func="login" data-role="button" data-theme="a">Login</a></div> 
 			<div class="ui-block-b"><a href="#about" data-role="button" data-theme="b">About</a></div>	   
 		</fieldset>
 	</div>
@@ -22,3 +23,7 @@
 		</p>
 	</div>	
 </div>
+
+<% content_for :page_script do %>
+	<%= render :partial => 'layouts/shared/bootstrap_facebook' %>	
+<% end %>

@@ -43,6 +43,7 @@ Alleycat::Application.routes.draw do
 
   match '/admin'          => 'public#admin'
   match '/public/connect' => 'public#connect'
+  match '/public/login'   => 'public#login'
   match '/logout'         => 'public#logout'
 
   namespace :admin do
@@ -60,7 +61,9 @@ Alleycat::Application.routes.draw do
       get :list
     end
     member do
+      get :start_play
       get :play
+      get :locate
     end
   end
 

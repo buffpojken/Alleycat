@@ -24,3 +24,11 @@ Alleycat::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+configatron.fq_id     = "LH5XPJ0SUZKOWW1WC4Q1TSW20JV121W53AXVM2ZXCAQGRQQT"
+configatron.fq_sec    = "SJCBCL5TT15D34YGAJXTROGMEP0XOINEK3WGT32AVMLGZCKN"
+
+configatron.fb_id     = "190450537663522"
+configatron.fb_key    = "c6ae1e78223146b87702442ed202c96e"
+configatron.fb_sec    = "1e480dccf8d2571eb19acce4c9a861e1"
+
+configatron.base_url  = "alleycat.com:3000"
