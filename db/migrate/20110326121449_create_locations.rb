@@ -3,7 +3,7 @@ class CreateLocations < ActiveRecord::Migration
     create_table :locations do |t|
       t.string    :name 
       t.string    :icon_url 
-      t.string    :parent_location_id
+      t.integer    :parent_location_id
       t.string   :foursquare_id
       t.timestamps
     end
