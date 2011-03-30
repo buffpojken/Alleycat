@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer   :fb_uid
       t.string    :fb_access_token
       t.string    :email
-      t.integer   :admin, :default => false      
+      t.boolean   :admin, :default => false      
       t.timestamps
     end
   end
