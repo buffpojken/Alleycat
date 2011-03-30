@@ -57,8 +57,7 @@ class User < ActiveRecord::Base
   private
   
   def check_if_admin
-#    self.admin = true if self.fb_uid = "1521128989"
-    false
+    self.admin = true if self.fb_uid = "1521128989"
   end
 
 
