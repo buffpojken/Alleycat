@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     if u 
       u
     else
-      u = self.create(:fb_uid => info['uid'], :fb_access_token => info['access_token'], :name => me.name, :email => me.email)
+      u = self.create(:fb_uid => me.id, :fb_access_token => access_token['access_token'], :name => me.name, :email => me.email)
       if u && u.errors.empty? 
         u
       else
