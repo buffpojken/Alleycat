@@ -17,7 +17,7 @@ class Admin::StoriesController < ApplicationController
   def create
     @story = Story.create(params[:story].merge({:user_id => @current_user.id}))
     if @story && @story.errors.empty? 
-      redirect_to acts_admin_story_path(@story) and return
+      redirect_to admin_story_acts_path(@story) and return
     else
       render :action => :new and return
     end
