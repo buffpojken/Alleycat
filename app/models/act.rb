@@ -10,6 +10,10 @@ class Act < ActiveRecord::Base
     self.position.update_attributes(data)
   end
   
+  def resolve_position(position_data)
+    return self.position.resolve(position_data)    
+  end
+  
   private
   
   def create_positioning

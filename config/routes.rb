@@ -63,7 +63,7 @@ Alleycat::Application.routes.draw do
     member do
       get :start_play
       get :play
-      get :locate
+      post :locations
     end
   end
 

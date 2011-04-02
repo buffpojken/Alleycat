@@ -28,5 +28,17 @@ class StoriesController < ApplicationController
   def play
     
   end
+  
+  def locations
+    @story    = Story.find(params[:id])    
+    if @story.acts.length == @current_user.current_act
+      # Handle end of story here... .daniel
+    else
+      @act      = @story.acts[@current_user.current_act]    
+      logger.info @act.inspect
+      response  = @act.resolve_position(params["location"])
+      render :text => response.to_json and return      
+    end
+  end
 
 end
